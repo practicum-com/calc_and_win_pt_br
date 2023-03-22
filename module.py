@@ -5,7 +5,7 @@ def set_enemy_health():
     return randint(80, 120)
 
 
-def get_light_attack():
+def get_lite_attack():
     return randint(2, 5)
 
 
@@ -27,15 +27,15 @@ def compare_valumes(enemy_health, user_total_attack):
 def get_user_attack():
     total = 0
     attacks_types = {
-        'light': get_light_attack,
-        'medium': get_medium_attack,
-        'heavy': get_heavy_attack,
+        'leve': get_light_attack,
+        'médio': get_medium_attack,
+        'pesado': get_heavy_attack,
     }
 
     for i in range(5):
-        input_attack = input('Enter the type of attack: ').lower()
+        input_attack = input('Insira o tipo de ataque: ').lower()
         attack_value = attacks_types[input_attack]()
-        print(f'Number of attack points: {attack_value}.')
+        print(f'O número de pontos de ataque: {attack_value}.')
         total += 1
     return total
 
@@ -43,18 +43,18 @@ def get_user_attack():
 def run_game():
     user_total_attack = get_user_attack()
     enemy_health = set_enemy_health()
-    print(f'Damage done to the enemy {user_total_attack}.')
-    print(f'Enemy health points after your attack: {enemy_health}.')
+    print(f'O dano causado ao inimigo é igual a {user_total_attack}.')
+    print(f'Pontos de saúde do inimigo depois do ataque: {enemy_health}.')
     if compare_valumes(enemy_health, user_total_attack):
-        print('Hooray! Victory is yours!')
+        print('Viva! A vitória é sua!')
     else:
-        print('No luck this time :( Battle lost.')
+        print('Desta vez, a sorte não estava ao seu lado :( Batalha perdida.')
     yes_no = {
         'Y': True,
         'N': False,
     }
-    replay = input('To play again, enter "y"; '
-                   'if you don\'t want to continue, enter "n": ')
+    replay = input('Para jogar novamente, insira "y"; '
+                   'se você não quiser continuar o jogo, insira "n": ')
     if replay not in yes_no:
-        raise ValueError('That command is not in the game.')
+        raise ValueError('Este comando não existe no jogo.')
     return yes_no[replay]
