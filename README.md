@@ -1,2 +1,2 @@
 # calc_and_win
-"Calculate and Win!" game repository
+Repositório do jogo "Calcule e Vença!”
